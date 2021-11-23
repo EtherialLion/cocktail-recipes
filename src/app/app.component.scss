@@ -1,0 +1,42 @@
+.container {
+  width: 800px;
+  margin: 40px auto;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  h1 {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 35px;
+  }
+
+  .coctail-img {
+    width: 50px;
+  }
+}
+
+.search {
+  .search-field {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+.coctail-list {
+  ul {
+    font-size: 20px;
+
+    li {
+      margin-bottom: 10px;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

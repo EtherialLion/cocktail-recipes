@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {CocktailService} from "./services/cocktail.service";
+import {CocktailDialogComponent} from "./cocktail-dialog/cocktail-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'diana-movies';
+  cocktails: any[] = [];
+
+  constructor(
+    private cocktailService: CocktailService,
+    public dialog: MatDialog,
+  ) {}
+
+  getCocktail(name: string){
+    this.cocktailService.getCocktailInfo(name).subscribe(result => {
+      this.cocktails = result?.drinks;
+      console.log(this.cocktails);
+    })
+  }
+
+  openDialog(cocktail: any) {
+    this.dialog.open(CocktailDialogComponent, {
+      data: cocktail,
+    });
+  }
 }
